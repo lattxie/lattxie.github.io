@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CLI Commands</title>
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<header>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/getting-started">Getting Started</a>
+    <a href="/docs">Docs</a>
+  </nav>
+</header>
+<main>
+<h2>CLI Commands</h2><h3>lattxie init</h3><p>Scaffold a new project.</p><pre><code>
+lattxie init .          # Initialize current directory
+lattxie init my-site    # Create and initialize a new directory
+</code></pre><h3>lattxie dev</h3><p>Start the development server with live reload.</p><pre><code>
+lattxie dev             # Default port 3000
+lattxie dev --port 4000 # Custom port
+</code></pre><p>Changes to <code>.tex</code>, <code>.html</code>, <code>.css</code>, and <code>.js</code> files in <code>pages/</code>, <code>layouts/</code>, and <code>public/</code> trigger automatic browser reload via SSE (Server-Sent Events).If the specified port is in use, it automatically tries the next available port (3000 → 3001 → 3002, up to +10).</p><h3>lattxie build</h3><p>Build the static site for production.</p><pre><code>
+lattxie build
+</code></pre><ul>
+    <li><p>Cleans the <code>_out/</code> directory
+  </p></li>
+    <li><p>Converts every <code>.tex</code> in <code>pages/</code> to <code>index.html</code> in the matching subdirectory
+  </p></li>
+    <li><p>Copies <code>public/</code> assets
+  </p></li>
+    <li><p>Reports per-file success or errors (build continues on error)
+</p></li>
+</ul><h3>lattxie serve</h3><p>Preview the built site locally.</p><pre><code>
+lattxie serve             # Default port 3000
+lattxie serve --port 5000
+</code></pre><p>Serves the <code>_out/</code> directory with proper MIME types and directory index fallback.</p><h3>lattxie help</h3><p>Show the help message.</p><h3>lattxie version</h3><p>Print the installed version.
+</p>
+</main>
+<footer>
+  <p>Built with Lattxie</p>
+</footer>
+</body>
+</html>

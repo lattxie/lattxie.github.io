@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Auto-Listing with \listpages</title>
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<header>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/getting-started">Getting Started</a>
+    <a href="/docs">Docs</a>
+  </nav>
+</header>
+<main>
+<h2>Auto-Listing with <code>\listpages</code></h2><p>The <code>\listpages</code> command automatically generates a list of links from files in a subdirectory of <code>pages/</code>.</p><h3>Basic Usage</h3><p>In your blog index page (<code>pages/blog/index.tex</code>):</p><pre><code>
+\listpages
+</code></pre><p>This scans <code>pages/blog/</code> for all <code>.tex</code> files (except <code>index.tex</code>), reads each file's <code>\title{}</code>, and generates:</p><pre><code>
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;/blog/post-title&quot;&gt;Post Title&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/blog/another&quot;&gt;Another Post&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre><h3>How It Works</h3><ol>
+    <li><p>During <code>lattxie build</code> or <code>lattxie dev</code>, the <code>\listpages{blog}</code> command triggers a filesystem scan
+  </p></li>
+    <li><p>It reads <code>pages/blog/</code> (excluding <code>index.tex</code>)
+  </p></li>
+    <li><p>Each .tex file is parsed to extract its <code>\title{}</code></p></li>
+    <li><p>Links are generated in alphabetical order by filename
+  </p></li>
+    <li><p>Files without <code>\title{}</code> use the filename (minus <code>.tex</code>) as the display text
+</p></li>
+</ol><h3>Directory Index Pages</h3><p>To use <code>\listpages</code>, you need both:</p><ul>
+    <li><p><code>pages/blog/index.tex</code> — the index page containing <code>\listpages{blog}</code></p></li>
+    <li><p><code>pages/blog/post-1.tex</code>, <code>pages/blog/post-2.tex</code>, etc. — the actual pages
+</p></li>
+</ul><p>The index page is served at <code>/blog</code>, each post at <code>/blog/post-1</code>.</p><h3>Examples</h3><h4>Blog Index</h4><pre><code>
+\title
+\layout
+
+\section
+
+\listpages
+</code></pre><h4>Essays Index</h4><pre><code>
+\title
+\layout
+
+\section
+
+\listpages
+</code></pre><h3>Limitations</h3><ul>
+    <li><p>Only scans one level deep (no recursive subdirectory listing)
+  </p></li>
+    <li><p>Sorts alphabetically by filename (no date-based ordering yet)
+  </p></li>
+    <li><p>Only works during build/dev — it's a static filesystem scan, not a runtime database
+</p></li>
+</ul>
+</main>
+<footer>
+  <p>Built with Lattxie</p>
+</footer>
+</body>
+</html>

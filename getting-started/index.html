@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Getting Started</title>
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<header>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/getting-started">Getting Started</a>
+    <a href="/docs">Docs</a>
+  </nav>
+</header>
+<main>
+<h2>Getting Started</h2><h3>Install</h3><pre><code>
+npm install -g lattxie
+</code></pre><p>Or use directly without installing:</p><pre><code>
+npx lattxie@latest init my-site
+</code></pre><h3>Create a Project</h3><pre><code>
+lattxie init my-site
+cd my-site
+</code></pre><p>This creates:</p><pre><code>
+my-site/
+  pages/
+    index.tex       # Your home page
+    blog/
+      index.tex     # /blog (uses \listpages)
+      post.tex      # /blog/post
+  layouts/
+    default.html    # HTML template with {{title}} and {{content}}
+  public/
+    styles.css      # Static assets
+  latty.config.json # Configuration
+</code></pre><h3>Run the Dev Server</h3><pre><code>
+lattxie dev
+</code></pre><p>Open <a href="http://localhost:3000">http://localhost:3000</a>. Changes to any file in <code>pages/</code> or <code>layouts/</code> trigger an automatic browser reload.If port 3000 is busy, it tries 3001, 3002, etc.</p><h3>Edit a Page</h3><p>Open <code>pages/index.tex</code> and change the content. Save — the browser reloads automatically.</p><h3>Build for Production</h3><pre><code>
+lattxie build
+</code></pre><p>Output goes to <code>_out/</code> — a fully static site ready to deploy.</p><h3>Preview the Built Site</h3><pre><code>
+lattxie serve
+</code></pre><p>Serves the <code>_out/</code> directory locally on port 3000.</p><h3>Deploy</h3><p>Upload <code>_out/</code> to any static host:</p><ul>
+    <li><p><strong>Vercel:</strong> Build command <code>lattxie build</code>, output <code>_out</code></p></li>
+    <li><p><strong>Netlify:</strong> Build command <code>lattxie build</code>, publish <code>_out</code></p></li>
+    <li><p><strong>GitHub Pages:</strong> Push <code>_out/</code> to <code>gh-pages</code></p></li>
+    <li><p><strong>S3/Cloudflare:</strong> Sync <code>_out/</code> to your bucket
+</p></li>
+</ul>
+</main>
+<footer>
+  <p>Built with Lattxie</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Deployment</title>
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<header>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/getting-started">Getting Started</a>
+    <a href="/docs">Docs</a>
+  </nav>
+</header>
+<main>
+<h2>Deployment</h2><p>Lattxie produces a fully static <code>_out/</code> directory. Deploy it to any static hosting provider.</p><h3>Build</h3><pre><code>
+lattxie build
+</code></pre><p>Output goes to <code>_out/</code> (configurable via <code>latty.config.json</code>).</p><h3>Vercel</h3><ol>
+    <li><p>Push to GitHub
+  </p></li>
+    <li><p>Import repo on <a href="https://vercel.com">Vercel</a></p></li>
+    <li><p>Set:
+</p></li>
+</ol><pre><code>
+Build command:  lattxie build
+Output dir:    _out
+</code></pre><p>Or with a <code>vercel.json</code>:</p><pre><code>
+{
+  &quot;buildCommand&quot;: &quot;npx lattxie@latest build&quot;,
+  &quot;outputDirectory&quot;: &quot;_out&quot;
+}
+</code></pre><h3>Netlify</h3><ol>
+    <li><p>Push to GitHub
+  </p></li>
+    <li><p>Import repo on <a href="https://netlify.com">Netlify</a></p></li>
+    <li><p>Set:
+</p></li>
+</ol><pre><code>
+Build command:  npx lattxie@latest build
+Publish dir:   _out
+</code></pre><h3>GitHub Pages</h3><p>Option 1 — push <code>_out/</code> to <code>gh-pages</code> branch:</p><pre><code>
+lattxie build
+cd _out
+git init
+git checkout -b gh-pages
+git add . &amp;&amp; git commit -m &quot;deploy&quot;
+git remote add origin &lt;repo-url&gt;
+git push -f origin gh-pages
+</code></pre><p>Option 2 — use GitHub Actions to build and deploy.</p><h3>Any Static Host</h3><p>Upload the contents of <code>_out/</code> to:</p><ul>
+    <li><p>AWS S3 + CloudFront
+  </p></li>
+    <li><p>Cloudflare Pages
+  </p></li>
+    <li><p>Firebase Hosting
+  </p></li>
+    <li><p>Any web server (nginx, Apache, Caddy)
+</p></li>
+</ul><p>Since the output is plain HTML + CSS + assets, it works everywhere.
+</p>
+</main>
+<footer>
+  <p>Built with Lattxie</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Configuration</title>
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<header>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/getting-started">Getting Started</a>
+    <a href="/docs">Docs</a>
+  </nav>
+</header>
+<main>
+<h2>Configuration</h2><p>Lattxie reads configuration from <code>latty.config.json</code> in the project root.</p><h3>Default Configuration</h3><pre><code>
+{
+  &quot;title&quot;: &quot;My Lattxie Site&quot;,
+  &quot;layout&quot;: &quot;default&quot;,
+  &quot;outputDir&quot;: &quot;_out&quot;,
+  &quot;pagesDir&quot;: &quot;pages&quot;,
+  &quot;layoutsDir&quot;: &quot;layouts&quot;,
+  &quot;publicDir&quot;: &quot;public&quot;
+}
+</code></pre><h3>Fields</h3><table>
+  <tr>
+    <td><p><strong>Field</strong></p></td>
+    <td><p><strong>Default</strong></p></td>
+    <td><p><strong>Description</strong></p></td>
+  </tr>
+  <tr>
+    <td><p>title </p></td>
+    <td><p>"My Lattxie Site" </p></td>
+    <td><p>Fallback title for pages without \title{}</p></td>
+  </tr>
+  <tr>
+    <td><p>layout </p></td>
+    <td><p>"default" </p></td>
+    <td><p>Default layout name from layouts/ </p></td>
+  </tr>
+  <tr>
+    <td><p>outputDir </p></td>
+    <td><p>"_out" </p></td>
+    <td><p>Build output directory </p></td>
+  </tr>
+  <tr>
+    <td><p>pagesDir </p></td>
+    <td><p>"pages" </p></td>
+    <td><p>Where .tex source files live </p></td>
+  </tr>
+  <tr>
+    <td><p>layoutsDir </p></td>
+    <td><p>"layouts" </p></td>
+    <td><p>Where .html templates live </p></td>
+  </tr>
+  <tr>
+    <td><p>publicDir </p></td>
+    <td><p>"public" </p></td>
+    <td><p>Static assets (copied as-is to output) </p></td>
+  </tr>
+</table><h3>Example with custom paths</h3><pre><code>
+{
+  &quot;title&quot;: &quot;My Blog&quot;,
+  &quot;layout&quot;: &quot;blog&quot;,
+  &quot;outputDir&quot;: &quot;dist&quot;,
+  &quot;pagesDir&quot;: &quot;content&quot;,
+  &quot;layoutsDir&quot;: &quot;templates&quot;,
+  &quot;publicDir&quot;: &quot;static&quot;
+}
+</code></pre>
+</main>
+<footer>
+  <p>Built with Lattxie</p>
+</footer>
+</body>
+</html>

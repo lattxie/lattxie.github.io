@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LaTeX Syntax</title>
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<header>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/getting-started">Getting Started</a>
+    <a href="/docs">Docs</a>
+  </nav>
+</header>
+<main>
+<h2>LaTeX Syntax Reference</h2><p>Lattxie supports a subset of LaTeX commands and environments, converted to semantic HTML.</p><h3>Text Formatting</h3><table>
+  <tr>
+    <td><p>\textbf{text}</p></td>
+    <td><p><strong>bold</strong></p></td>
+  </tr>
+  <tr>
+    <td><p>\textit{text}</p></td>
+    <td><p><em>italic</em></p></td>
+  </tr>
+  <tr>
+    <td><p>\emph{text}</p></td>
+    <td><p><em>emphasis</em></p></td>
+  </tr>
+  <tr>
+    <td><p>\underline{text}</p></td>
+    <td><p><u>underline</u></p></td>
+  </tr>
+  <tr>
+    <td><p>\texttt{text}</p></td>
+    <td><p><code>monospace</code></p></td>
+  </tr>
+  <tr>
+    <td><p>\textsf{text}</p></td>
+    <td><p><span style="font-family: sans-serif">sans-serif</span></p></td>
+  </tr>
+  <tr>
+    <td><p>\textrm{text}</p></td>
+    <td><p><span style="font-family: serif">serif</span></p></td>
+  </tr>
+  <tr>
+    <td><p>\textsc{text}</p></td>
+    <td><p><span style="font-variant: small-caps">Small Caps</span></p></td>
+  </tr>
+  <tr>
+    <td><p>\textcolor{red}{text}</p></td>
+    <td><p>colored text </p></td>
+  </tr>
+</table><h3>Headings</h3><table>
+  <tr>
+    <td><p>\section{Title}</p></td>
+    <td><p><code><h2></code></p></td>
+  </tr>
+  <tr>
+    <td><p>\subsection{Title}</p></td>
+    <td><p><code><h3></code></p></td>
+  </tr>
+  <tr>
+    <td><p>\subsubsection{Title}</p></td>
+    <td><p><code><h4></code></p></td>
+  </tr>
+  <tr>
+    <td><p>\paragraph{Title}</p></td>
+    <td><p><code><h5></code></p></td>
+  </tr>
+</table><h3>Lists</h3><pre><code>
+\begin{itemize}...\end{itemize}
+
+\begin{enumerate}...\end{enumerate}
+
+\begin{description}...\end{description}
+\end
+
+\subsection
+
+\begin{verbatim}...\end{verbatim}
+
+\subsection
+
+\begin{verbatim}...\end{verbatim}
+
+Optional \texttt argument is parsed and applied as an HTML width attribute.
+
+\subsection
+
+\begin{tabular}...\end{tabular}
+
+\subsection
+
+\begin{verbatim}...\end{verbatim}
+
+Rendered as \texttt and \texttt.
+
+\subsection
+
+These commands are parsed for metadata but don't render visible content:
+
+\begin{verbatim}...\end{verbatim}
+
+\texttt selects which layout file from \texttt to use (default: \texttt).
+
+\subsection
+
+\begin{tabular}...\end{tabular}
+
+\subsection
+
+\begin{tabular}...\end{tabular}
+
+\subsection
+
+\begin{verbatim}...\end{verbatim}
+
+Scans \texttt, reads each .tex's \texttt, and generates a list of \texttt links. Automatically updates when you add new files.
+</code></pre>
+</main>
+<footer>
+  <p>Built with Lattxie</p>
+</footer>
+</body>
+</html>

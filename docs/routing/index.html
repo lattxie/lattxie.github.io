@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Routing</title>
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<header>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/getting-started">Getting Started</a>
+    <a href="/docs">Docs</a>
+  </nav>
+</header>
+<main>
+<h2>Routing</h2><p>Lattxie uses <strong>file-based routing</strong>, inspired by Next.js. The file path inside <code>pages/</code> determines the URL.</p><h3>Basics</h3><table>
+  <tr>
+    <td><p><strong>File</strong></p></td>
+    <td><p><strong>URL</strong></p></td>
+  </tr>
+  <tr>
+    <td><p>pages/index.tex </p></td>
+    <td><p>/ </p></td>
+  </tr>
+  <tr>
+    <td><p>pages/about.tex </p></td>
+    <td><p>/about </p></td>
+  </tr>
+  <tr>
+    <td><p>pages/contact.tex </p></td>
+    <td><p>/contact </p></td>
+  </tr>
+</table><h3>Nested Routes</h3><p>Create subdirectories for nested paths:</p><table>
+  <tr>
+    <td><p>pages/blog/index.tex </p></td>
+    <td><p>/blog </p></td>
+  </tr>
+  <tr>
+    <td><p>pages/blog/post.tex </p></td>
+    <td><p>/blog/post </p></td>
+  </tr>
+  <tr>
+    <td><p>pages/blog/hello-world.tex </p></td>
+    <td><p>/blog/hello-world </p></td>
+  </tr>
+  <tr>
+    <td><p>pages/essays/essay.tex </p></td>
+    <td><p>/essays/essay </p></td>
+  </tr>
+</table><h3>Index Files</h3><p>A file named <code>index.tex</code> in a directory becomes the root URL of that directory. For example, <code>pages/blog/index.tex</code> maps to <code>/blog</code>.</p><h3>Pretty URLs</h3><p>All URLs are clean — no <code>.html</code> extension. Lattxie automatically generates:</p><ul>
+    <li><p><code>about.tex</code> → <code>about/index.html</code> (in the build output)
+  </p></li>
+    <li><p><code>blog/post.tex</code> → <code>blog/post/index.html</code></p></li>
+    <li><p><code>index.tex</code> → <code>index.html</code> (stays at root)
+</p></li>
+</ul><p>This ensures every page is accessible at <code>/path</code> or <code>/path/</code> without any server configuration.</p><h3>404 Pages</h3><p>If a page doesn't exist, Lattxie renders a styled "Not Found" page using the project's default layout — so it matches the rest of your site.
+</p>
+</main>
+<footer>
+  <p>Built with Lattxie</p>
+</footer>
+</body>
+</html>

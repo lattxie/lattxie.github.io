@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Home</title>
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<header>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/getting-started">Getting Started</a>
+    <a href="/docs">Docs</a>
+  </nav>
+</header>
+<main>
+<div style="text-align: center">
+<h2>Lattxie</h2><p><em>Turn LaTeX into static sites. No backend, no API, no CSS framework — just content.</em><a href="/getting-started">Get Started</a> <a href="/docs">Read the Docs</a></p>
+</div><h2>What is Lattxie?</h2><p>Lattxie is a static site generator that converts <strong>LaTeX</strong> files into <strong>HTML</strong> pages. Write your content in LaTeX, use the familiar file-based routing from Next.js, and deploy to any static host.</p><pre><code>
+npm install -g lattxie
+mkdir my-site &amp;&amp; cd my-site
+lattxie init .
+lattxie dev      # http://localhost:3000
+lattxie build    # outputs _out/
+</code></pre><h2>Why Lattxie?</h2><ul>
+    <li><p><strong>Zero runtime dependencies</strong> — one install, that's it
+  </p></li>
+    <li><p><strong>File-based routing</strong> — <code>pages/blog/post.tex</code> → <code>/blog/post</code></p></li>
+    <li><p><strong>Pretty URLs</strong> — no <code>.html</code> extensions, automatically
+  </p></li>
+    <li><p><strong>Live reload</strong> — edit .tex, see changes instantly
+  </p></li>
+    <li><p><strong>Dynamic listings</strong> — <code>\listpages{blog}</code> auto-generates link lists
+  </p></li>
+    <li><p><strong>No JavaScript required</strong> — pure HTML output
+  </p></li>
+    <li><p><strong>Deploy anywhere</strong> — Vercel, Netlify, GitHub Pages, S3
+</p></li>
+</ul><h2>Quick Start</h2><ol>
+    <li><p><code>npx lattxie@latest init my-site</code></p></li>
+    <li><p><code>cd my-site && lattxie dev</code></p></li>
+    <li><p>Edit <code>pages/index.tex</code></p></li>
+    <li><p><code>lattxie build</code> when ready
+</p></li>
+</ol><h2>CLI Commands</h2><table>
+  <tr>
+    <td><p><strong>Command</strong></p></td>
+    <td><p><strong>Description</strong></p></td>
+  </tr>
+  <tr>
+    <td><p>lattxie init . </p></td>
+    <td><p>Create a new project </p></td>
+  </tr>
+  <tr>
+    <td><p>lattxie dev </p></td>
+    <td><p>Start dev server (port auto-fallback) </p></td>
+  </tr>
+  <tr>
+    <td><p>lattxie build </p></td>
+    <td><p>Build to _out/ </p></td>
+  </tr>
+  <tr>
+    <td><p>lattxie serve </p></td>
+    <td><p>Preview built site </p></td>
+  </tr>
+  <tr>
+    <td><p>lattxie init dir </p></td>
+    <td><p>Scaffold in a new directory </p></td>
+  </tr>
+</table><h2>File-Based Routing</h2><p>Pages live in <code>pages/</code>. The file path determines the URL:</p><table>
+  <tr>
+    <td><p><strong>File</strong></p></td>
+    <td><p><strong>URL</strong></p></td>
+  </tr>
+  <tr>
+    <td><p>pages/index.tex </p></td>
+    <td><p>/ </p></td>
+  </tr>
+  <tr>
+    <td><p>pages/about.tex </p></td>
+    <td><p>/about </p></td>
+  </tr>
+  <tr>
+    <td><p>pages/blog/index.tex </p></td>
+    <td><p>/blog </p></td>
+  </tr>
+  <tr>
+    <td><p>pages/blog/post.tex </p></td>
+    <td><p>/blog/post </p></td>
+  </tr>
+  <tr>
+    <td><p>pages/essays/reducing-token-usage.tex </p></td>
+    <td><p>/essays/reducing-token-usage </p></td>
+  </tr>
+</table><p>Each page is rendered through a layout (default: <code>layouts/default.html</code>) which receives <code>{{title}}</code> and <code>{{content}}</code>.</p><h2>Auto-Listing with <code>\listpages</code></h2><p>Instead of manually maintaining a list of blog posts, use:</p><pre><code>
+\listpages
+</code></pre><p>This scans <code>pages/blog/</code>, reads each .tex file's <code>\title{}</code>, and generates a list of links. Add a new post and it appears automatically.</p><h2>Supported LaTeX</h2><h3>Text Formatting</h3><p>\textbf{bold}, \textit{italic}, \emph{emphasis}, \underline{underline}, \texttt{mono}, \textcolor{red}{text}</p><h3>Links</h3><p>\href{url}{text}</p><h3>Images</h3><p>\includegraphics[width=0.5\textwidth]{image.jpg}</p><h3>Lists</h3><p>
+itemize, enumerate, description environments</p><h3>Environments</h3><p>
+center, verbatim, quote, quotation, abstract, figure, table, tabular</p><h3>Math</h3><p><code>$...$</code> for inline, <code>$...$</code> for display</p><h3>Metadata</h3><p>\title{}, \author{}, \date{}, \layout{}</p><h3>Page Commands</h3><p>\section{}, \subsection{}, \subsubsection{}, \vspace{}, \bigskip, \par</p><h2>Deploy</h2><p>Build your site and deploy the <code>_out/</code> directory.</p><h3>Vercel</h3><pre><code>
+Build command:  lattxie build
+Output dir:    _out
+</code></pre><h3>Netlify</h3><pre><code>
+Build command:  lattxie build
+Publish dir:   _out
+</code></pre><h3>GitHub Pages</h3><p>Push <code>_out/</code> to <code>gh-pages</code> branch, or use GitHub Actions.</p><h2>Configuration</h2><p><code>latty.config.json</code> in your project root:</p><pre><code>
+{
+  &quot;title&quot;: &quot;My Site&quot;,
+  &quot;layout&quot;: &quot;default&quot;,
+  &quot;outputDir&quot;: &quot;_out&quot;,
+  &quot;pagesDir&quot;: &quot;pages&quot;,
+  &quot;layoutsDir&quot;: &quot;layouts&quot;,
+  &quot;publicDir&quot;: &quot;public&quot;
+}
+</code></pre>
+</main>
+<footer>
+  <p>Built with Lattxie</p>
+</footer>
+</body>
+</html>
