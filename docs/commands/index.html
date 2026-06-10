@@ -35,7 +35,16 @@ lattxie build
 </ul><h3>lattxie serve</h3><p>Preview the built site locally.</p><pre><code>
 lattxie serve             # Default port 3000
 lattxie serve --port 5000
-</code></pre><p>Serves the <code>_out/</code> directory with proper MIME types and directory index fallback.</p><h3>lattxie help</h3><p>Show the help message.</p><h3>lattxie version</h3><p>Print the installed version.
+</code></pre><p>Serves the <code>_out/</code> directory with proper MIME types and directory index fallback.</p><h3>lattxie help</h3><p>Show the help message.</p><h3>lattxie version</h3><p>Print the installed version.</p><h3>Installation</h3><p>Install from either registry:</p><pre><code>
+npm install -g lattxie            # npmjs.com
+npm install -g @lattxie/lattxie   # GitHub Packages
+</code></pre><p>GitHub Packages requires one-time auth:</p><pre><code>
+npm login --scope=@lattxie --registry=https://npm.pkg.github.com/
+</code></pre><h3>CI/CD (GitHub Actions)</h3><p>On every push to <code>main</code>, the package is auto-published to both registries:</p><ol>
+    <li><p><code>npmjs.com</code> — uses <code>NPM_TOKEN</code> secret
+  </p></li>
+    <li><p><code>@lattxie/lattxie</code> — uses automatic <code>GITHUB_TOKEN</code></p></li>
+</ol><p>The site itself is deployed to <a href="https://lattxie.github.io">lattxie.github.io</a> from the <code>lattxie/lattxie.github.io</code> repo.
 </p>
 </main>
 <footer>
